@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/ll_schedule_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:minHeight="24dp"
+        android:orientation="horizontal"
+        android:background="#abcdef">
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_schedule_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
     </android.support.v7.widget.RecyclerView>
 
-</LinearLayout>
+</merge>
