@@ -3,13 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:id="@+id/schedule_head_ll"
+        android:id="@+id/ll_schedule_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/schedule_content_rv"
+        android:id="@+id/rv_schedule_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </android.support.v7.widget.RecyclerView>

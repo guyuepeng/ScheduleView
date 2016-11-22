@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import gg.adapter.ScheduleContentRvAdapter;
+import gg.bean.ScheduleBean;
 
 /**
  * Created by GG on 2016/11/21.
@@ -37,8 +38,8 @@ public class ScheduleView extends LinearLayout {
         super(context, attrs, defStyleAttr);
         this.context=context;
         root=inflate(context,R.layout.schedule_view,null);
-        scheduleHeadLL= (LinearLayout) root.findViewById(R.id.schedule_head_ll);
-        scheduleContentRV= (RecyclerView) root.findViewById(R.id.schedule_content_rv);
+        scheduleHeadLL= (LinearLayout) root.findViewById(R.id.ll_schedule_head);
+        scheduleContentRV= (RecyclerView) root.findViewById(R.id.rv_schedule_content);
         init();
     }
 
@@ -56,6 +57,13 @@ public class ScheduleView extends LinearLayout {
     private void initRecyclerView() {
         //周末由于没有课所以不计入，+1加上最左边的课程号
         scheduleContentRV.setLayoutManager(new GridLayoutManager(context,dayInWeek+1));
-        scheduleContentRV.setAdapter(new ScheduleContentRvAdapter());
+    }
+
+    /**
+     * 由调用者传入数据
+     * @param scheduleBean
+     */
+    public void fillData(ScheduleBean scheduleBean) {
+        scheduleContentRV.setAdapter(new ScheduleContentRvAdapter(context,scheduleBean,dayInWeek));
     }
 }
