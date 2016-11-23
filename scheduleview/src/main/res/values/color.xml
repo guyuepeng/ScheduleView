@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="header_color">#ffffff</color>
+    <color name="white_background_light">#f8f8f8</color>
+    <color name="white_background">#f0f0f0</color>
+    <color name="grey_background_light">#e8e8e8</color>
+    <color name="grey_background">#d8d8d8</color>
+    <color name="grey_background_dark">#c0c0c0</color>
+
+</resources>

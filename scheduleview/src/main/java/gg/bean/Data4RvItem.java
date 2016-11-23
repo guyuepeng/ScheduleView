@@ -1,5 +1,7 @@
 package gg.bean;
 
+import gg.api.Constant;
+
 /**
  * Created by GG on 2016/11/22.
  * Email:gu.yuepeng@foxmail.com
@@ -9,6 +11,8 @@ public class Data4RvItem {
     //若是左侧的序号则为true，默认false
     @Deprecated
     private boolean isIndexItem = false;
+
+    private int type= Constant.TYPE_COURSE;
 
     private int topIndex;
     private CourseBean mCourseBean;
@@ -20,11 +24,13 @@ public class Data4RvItem {
      */
     public Data4RvItem(int index) {
         isIndexItem = true;
+        type=Constant.TYPE_COURSE_INDEX;
         topIndex = index*2+1;
     }
 
     public Data4RvItem(CourseBean courseBean) {
         mCourseBean = courseBean;
+        type=Constant.TYPE_COURSE;
     }
 
 
@@ -33,6 +39,9 @@ public class Data4RvItem {
     }
     public CourseBean getCourseBean(){
         return mCourseBean;
+    }
+    public int getType(){
+        return type;
     }
 
 

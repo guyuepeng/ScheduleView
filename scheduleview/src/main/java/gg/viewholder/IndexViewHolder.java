@@ -1,5 +1,6 @@
 package gg.viewholder;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,15 +16,20 @@ public class IndexViewHolder extends BaseViewHolder {
     private TextView tv_top;
     private TextView tv_bottom;
 
-    public IndexViewHolder(View itemView) {
-        super(itemView);
-        tv_top= (TextView) itemView.findViewById(R.id.tv_course_index_top);
-        tv_bottom= (TextView) itemView.findViewById(R.id.tv_course_index_bottom);
+    public IndexViewHolder(Context context,View itemView) {
+        super(context,itemView);
+        tv_top = (TextView) itemView.findViewById(R.id.tv_course_index_top);
+        tv_bottom = (TextView) itemView.findViewById(R.id.tv_course_index_bottom);
     }
+
 
     @Override
     public void fillData(Data4RvItem data4RvItem) {
-        tv_top.setText(data4RvItem.getTopIndex()+"");
-        tv_bottom.setText(data4RvItem.getTopIndex()+1+"");
+        setIndex2TV(data4RvItem.getTopIndex());
+    }
+
+    private void setIndex2TV(int index) {
+        tv_top.setText(index + "");
+        tv_bottom.setText(index + 1 + "");
     }
 }

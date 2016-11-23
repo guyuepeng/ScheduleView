@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
@@ -8,13 +8,15 @@
         android:layout_height="wrap_content"
         android:minHeight="24dp"
         android:orientation="horizontal"
-        android:background="#abcdef">
+        android:elevation="3dp"
+        android:background="@color/header_color">
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_schedule_content"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:background="#000000"
+        >
     </android.support.v7.widget.RecyclerView>
 
-</merge>
+</LinearLayout>

@@ -1,5 +1,6 @@
 package gg.viewholder;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -10,8 +11,13 @@ import gg.bean.Data4RvItem;
  */
 
 public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
-    public BaseViewHolder(View itemView) {
+    protected View root;
+    protected Context context;
+
+    public BaseViewHolder(Context context,View itemView) {
         super(itemView);
+        this.context=context;
+        root=itemView;
     }
 
     /**
