@@ -28,7 +28,7 @@ public class CourseViewHolder extends BaseViewHolder {
         //这个里面的逻辑需要重新写，只是写了个例子
         courseBean=data4RvItem.getCourseBean();
         if (data4RvItem.getCourseBean()!=null){
-            tv_content.setText(data4RvItem.toString()+"\n\n"+ data4RvItem.getType()+courseBean.toString());
+            tv_content.setText(courseBean.toString());
             root.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

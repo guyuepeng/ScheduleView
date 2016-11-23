@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         mScheduleView= (ScheduleView) findViewById(R.id.sv);
 
         List<CourseBean> mList = new ArrayList<>();
-        for (int i = 0; i < 25; i++) {
+        for (int i = 0; i < 40; i++) {
             mList.add(new CourseBean());
         }
         mScheduleView.fillData(new int[]{2016,11,29},5,mList);
