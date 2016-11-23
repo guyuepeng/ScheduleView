@@ -5,9 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import gg.bean.Data4RvItem;
-
 /**
- * Created by majiadong on 16-11-22.
+ * Created by GG on 2016/11/21.
+ * Email:gu.yuepeng@foxmail.com
  */
 
 public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
