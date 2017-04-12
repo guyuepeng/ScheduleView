@@ -2,23 +2,25 @@
 使用RecyclerView实现的自定义课程表View
 
 USE RECYCLERVIEW
+
 ***
 最近打算依托学校教务系统做一个Android平台的客户端，需要一个课程表控件，在网上找了几个都不是很满意，感觉用起来灵活性不是很好，于是自己动手码了一个，贴出来记录一下，有问题欢迎Issue
 ***
-###效果图
-![显示周一到周五](http://upload-images.jianshu.io/upload_images/1941207-4b67cea940dc32b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![正常显示一周](http://upload-images.jianshu.io/upload_images/1941207-bba0a926244ea027.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+### 效果图
+![显示周一到周五](./art/demo.png)
+
+![正常显示一周](./art/demo2.png)
 ***
 #自定义View——ScheduleView
-###结构
+### 结构
 >LinearLayout
 -- LinearLayout
 --  RecyclerView    
 
 层次很简单，最外层是一个LinearLayout，星期栏(header)是一个LinearLayout，下面整个是一个RecyclerView
 
-###思路：
+### 思路：
 - 利用```GridLayoutManager.setSpanSizeLookUp(SpanSizeLookup)```方法，在Adapter中通过```getItemViewType()```区分两种不同类型item，实现不同的item（index和course）
 - 从而控制最左侧的item(index)的宽度和正常的item(course)的宽度比例为1:TIMES（其中TIMES在Constant中定义）
 - 同样的，在Header（星期栏）中使用```addView(View child, ViewGroup.LayoutParams params)```，通过设置weight来控制每个item的大小和位置，从而保证，header中的item和下面RecyclerView中的item位置上是对应的
@@ -27,7 +29,7 @@ USE RECYCLERVIEW
 - RecyclerView在获取到数据之后才开始初始化加载，因此等待用户调用```fillData(...)```方法后才开始进行初始化操作
 - 在CourseViewHolder中对itemView添加点击事件
 
-###实现
+### 实现
 说了这么多，不如直接撸代码：
 ```
 public ScheduleView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -196,7 +198,7 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
     public abstract void fillData(Data4RvItem data4RvItem);
 }
 ```
-###参数说明
+### 参数说明
 ```
     public void fillData(int[] startYMD, int daysInWeek, List<CourseBean> courses) 
 ```
@@ -204,6 +206,6 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
 - daysInWeek:Header中预期显示到周几，即一周有几天
 - courses:课程表信息，即使没有课也需要占位，courses应和daysInWeek对应，以便后续操作转换成Data4RvItem
 
-###总结
+### 总结
 - 中间曾想过使用StaggeredGridLayoutManager实现一个横向的瀑布流效果，最终还是用GridLayoutManager来做的，写完之后感觉还不错,不过bug应该不少，待发掘
 - 感觉使用RecyclerView来做整个层次结构简单清晰了很多
